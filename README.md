@@ -1,6 +1,6 @@
 # ProductApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.0.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.0. In this project, We can register to app. After that, we can login the app. If we login successufully, we can manage the products. We can add the product,update the product and delete the product. Also, there is a profile page which we can manage our profile informations. In this project, I use the api for getting information from the database. You can check the WepAPI repository. Login and register transactions is made with JWT token authentication.
 
 ## Development server
 
