@@ -1,0 +1,87 @@
+ <div class="card shadow-lg" style="background-color: lightslategray; padding:20px;">
+    <form [formGroup]="service.formModel" autocomplete="off" (submit)="onSubmit()"  class="example-form">
+    <div class="row">
+       <div class="col-md-6">
+           <mat-form-field class="example-full-width">
+               <mat-label>Username</mat-label>
+               <input formControlName="UserName" required matInput>
+               
+           </mat-form-field >
+           <p  style="margin-top:-18px;color:#EF9A9A" *ngIf="service.formModel.get('UserName').touched && service.formModel.get('UserName').errors?.required">This field is required.</p>
+           <mat-form-field class="example-full-width">
+               <mat-label>Name</mat-label>
+               <input formControlName="Name" required matInput>
+           </mat-form-field >
+           <p  style="margin-top:-18px;color:#EF9A9A" *ngIf="service.formModel.get('Name').touched && service.formModel.get('Name').errors?.required">This field is required.</p>
+           <mat-form-field class="example-full-width">
+               <mat-label>Surname</mat-label>
+               <input formControlName="Surname" required matInput>
+           </mat-form-field >
+           <p  style="margin-top:-18px;color:#EF9A9A" *ngIf="service.formModel.get('Surname').touched && service.formModel.get('Surname').errors?.required">This field is required.</p>
+       </div>
+       <div class="col-md-6">
+           <div formGroupName="Passwords">
+               <mat-form-field class="example-full-width">
+                   <mat-label>Password</mat-label>
+                   <input id="mysecretpassword" type="password" formControlName="Password" showHideInput matInput required>
+                   <i matSuffix
+                class="material-icons text-white"
+                showHideTrigger="mysecretpassword"
+                [showHideStatus]="{ materialIcon: true, id: 'mysecretpassword' }"
+                    ></i>
+               </mat-form-field>
+               <p style="margin-top:-18px;color:#EF9A9A" *ngIf="service.formModel.get('Passwords.Password').touched && service.formModel.get('Passwords.Password').errors?.required">This field is required.</p>
+               <mat-form-field class="example-full-width">
+                   <mat-label>ConfirmPassword</mat-label>
+                   <input formControlName="ConfirmPassword" type="password" id="mysecretpassword2" required showHideInput matInput>
+                   <i matSuffix
+                class="material-icons text-white"
+                showHideTrigger="mysecretpassword2"
+                [showHideStatus]="{ materialIcon: true, id: 'mysecretpassword2' }"
+                    ></i>
+               </mat-form-field>
+               <p style="margin-top:-18px;color:#EF9A9A" *ngIf="service.formModel.get('Passwords.ConfirmPassword').touched && service.formModel.get('Passwords.ConfirmPassword').errors?.required">This field is required.</p>
+               <p  style="margin-top:-18px;color:#EF9A9A" *ngIf="service.formModel.get('Passwords.ConfirmPassword').touched && service.formModel.get('Passwords.ConfirmPassword').errors?.passwordMismatch">Passwords have to match.</p>
+       
+           </div>
+           
+           <mat-form-field class="example-full-width">
+               <mat-label>Email</mat-label>
+               <input formControlName="Email" required matInput>
+           </mat-form-field>
+           <p  style="margin-top:-18px;color:#EF9A9A" *ngIf="service.formModel.get('Email').touched && service.formModel.get('Email').errors?.required">This field is required.</p>
+           <p  style="margin-top:-18px;color:#EF9A9A" *ngIf="service.formModel.get('Email').touched && service.formModel.get('Email').errors?.email">Invalid email adress.</p>
+            
+       </div>
+    </div>
+    
+    <div class="row" style="margin-bottom:15px">
+        <div class="input-group mb-3">
+            <input type="file" #file placeholder="Choose file" (change)="uploadFile(file.files)" style="display: none;">
+            <input class="form-control" disabled [(value)]="fileName">
+           
+            
+            <div class="input-group-append">
+                <button class="btn btn-danger" *ngIf="fileName!=''" (click)="resetUpload()" type="button"><i class="fa fa-times"></i></button>
+                <button type="button" class="btn btn-success" (click)="file.click()">Browse</button>
+                
+              </div>
+           
+        </div>
+        <p class="text-danger" *ngIf="errorMessage">{{errorMessage}}</p>
+        
+        
+    </div>
+  
+   <div class="" style="display: flex;justify-content: center;">
+   
+    <img width="30px" class="mr-2" *ngIf="showSpinner" src="../../../assets/5.gif">
+   <button type="submit" class="button" [disabled]="!service.formModel.valid || !service.formModel.touched" mat-raised-button>Sign Up
+
+   </button>
+
+</div>
+</form>
+
+
+ </div>

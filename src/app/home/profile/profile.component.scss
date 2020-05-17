@@ -1,0 +1,34 @@
+.title{
+    display:flex;
+    justify-content: space-between;
+}
+.update{
+    background: black;
+    height: 40px;
+    /* margin: 15px; */
+    color: white;
+    border-radius: 25px;
+    transition: 0.3s;
+}
+.update:hover{
+    background-color: #5e4e4e
+    
+}
+p{
+    margin-top: -15px;
+}
+.imagebox{
+    height: 150px; width: 150px;border-radius: 50%;background-size: 150px 150px;display: flex;justify-content: center;z-index: -1;
+    cursor: pointer;
+    opacity: 0.8;
+}
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  .example-full-width {
+    width: 100%;
+  }
+  
+  

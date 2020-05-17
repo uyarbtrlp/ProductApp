@@ -1,0 +1,61 @@
+<div class="container" *ngIf="!updateMode" style="display: flex;justify-content: center;">
+    <div class="card mt-5 shadow-lg" style="width:30rem;padding: 20px;background-color: paleturquoise;" *ngIf="service.userDetails">
+        <div class="title">
+            <img [src]="createImagePath(service.userDetails?.image)" class="rounded-circle" height="150" width="150">
+            <button class="update" (click)="updateModOn()" mat-button>Update Profile</button>
+        </div>
+        <p style="margin-left: 35px;margin-top:15px;font-weight: bold;">{{service.userDetails?.userName}}</p>
+        <p style="margin-left: 35px;">{{service.userDetails?.name}} {{service.userDetails?.surname}}</p>
+        
+        <p style="margin-left: 35px;">{{service.userDetails?.email}}</p>
+      
+  </div>
+  </div>
+  <div class="container" *ngIf="updateMode" style="display: flex;justify-content: center;">
+    <div class="card mt-5 shadow-lg" style="width:30rem;padding: 20px;background-color: paleturquoise;" *ngIf="service.userDetails">
+        <div class="title">
+            <div class="">
+                <div  class="imagebox" #imagebox  (click)="file.click()" [ngStyle]="{'background-image': 'url(' + photo + ')'}"
+                >
+                
+                <input type="file" #file (change)="uploadFile(file.files)"  placeholder="Choose file" style="display: none;">
+                <i class="fa fa-camera-retro" style="margin-top: 60px;font-size: 30px;"></i>
+                
+                </div>
+                
+                
+            
+            
+            
+            
+        </div>
+       
+        
+        <button class="update" (click)="onSave()" mat-button>Cancel Update</button>
+        
+      
+  </div>
+  <form class="example-form" (submit)="onSubmit()" [formGroup]="service.formModel">
+    <mat-form-field class="example-full-width">
+        <mat-label>Username</mat-label>
+        <input formControlName="UserName" required matInput>
+    </mat-form-field >
+    <mat-form-field  class="example-full-width">
+        <mat-label>Name</mat-label>
+        <input formControlName="Name"  required matInput>
+    </mat-form-field >
+    <mat-form-field  class="example-full-width">
+        <mat-label>Surname</mat-label>
+        <input formControlName="Surname"  required matInput>
+    </mat-form-field >
+    <mat-form-field class="example-full-width">
+        <mat-label>Email</mat-label>
+        <input formControlName="Email"  required matInput>
+    </mat-form-field >
+    <button mat-raised-button type="submit">Save</button>
+  </form>
+
+  
+  
+  </div>
+  

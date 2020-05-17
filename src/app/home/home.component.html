@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: lightsteelblue;">
+  <button mat-icon-button class="mr-2 ml-3" (click)="drawer.toggle()"style="background-color: transparent;">
+    <i class="fa fa-bars"></i>
+  </button>
+  
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button mat-raised-button style="margin-left: auto;" (click)="onLogout()"><mat-icon>exit_to_app</mat-icon> Logout </button>
+    
+  
+    
+    
+  </nav>
+  
+
+  <mat-drawer-container class="example-container" autosize>
+    <mat-drawer style="background-color: lightsteelblue;" #drawer  class="example-sidenav" mode="side">
+      <div class="container mt-2" style="display:flex;justify-content: center">
+        <div class="profile">
+          <img [src]="createImagePath(service.userDetails?.image)" class="rounded-circle" height="150" width="150">
+          <p #user class=" ml-1 mt-2" *ngIf="service.userDetails">Welcome, {{service.userDetails?.userName}}</p>
+        </div>
+        
+      </div>
+      <mat-list>
+        <a mat-list-item routerLink="/home/products"  routerLinkActive="active"> Home </a>
+       
+        <a mat-list-item routerLink="/home/profile" routerLinkActive="active"> Profile </a>
+        
+       </mat-list>
+       
+      
+    </mat-drawer>
+  
+    <router-outlet></router-outlet>
+    
+  
+  </mat-drawer-container>
+
+ 
+  
+  
+  

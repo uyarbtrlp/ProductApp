@@ -1,0 +1,39 @@
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+  .example-width {
+    width: 90%;
+  }
+  :host::ng-deep .mat-form-field {
+    
+}
+:host ::ng-deep .mat-form-field.mat-focused {
+    
+}
+:host::ng-deep .mat-form-field.mat-form-field-invalid {
+    
+}
+mat-toolbar{
+  display: inline;
+}
+.newProduct{
+  background: #f5f5f5;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px
+}
+@media screen and (max-width:767px){
+  ::ng-deep .cdk-overlay-pane{
+    width: 100% !important;
+  }
+
+}
+::ng-deep .mat-select-panel-wrap{
+  margin-top: 40px;
+}

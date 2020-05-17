@@ -1,0 +1,52 @@
+<mat-toolbar>
+    <div class="newProduct">
+
+     
+        <span>New Product</span>
+        <button mat-stroked-button tabindex="-1" (click)="onClose()"><i class="fa fa-times"></i></button>
+       </div>
+   
+
+</mat-toolbar>
+     
+ <form  [formGroup]="service.formModel" (submit)="onSubmit()" class="example-form">
+    <mat-form-field class="example-full-width" >
+        <mat-label>Name</mat-label>
+        <input formControlName="Name" name="Name" #Name  required matInput>
+        
+    </mat-form-field >
+    <p class="text-danger" style="margin-top:-18px" *ngIf="service.formModel.get('Name').touched && service.formModel.get('Name').errors?.required">This field is required.</p>
+    <p class="text-danger" style="margin-top:-18px" *ngIf="service.formModel.get('Name').errors?.empty && service.formModel.get('Name').touched">Name cannot start with empty string.</p>
+    <mat-form-field class="example-full-width">
+        <mat-label>Description</mat-label>
+        <input formControlName="Description"  name="Description" matInput>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <mat-label>Price</mat-label>
+        <input formControlName="Price"  name="Price" type="number"  required matInput>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <mat-label>You can select to product's category.</mat-label>
+        <mat-select formControlName="CategoryId" name="CategoryId">
+          <mat-option *ngFor="let category of categories" [value]="category.id">
+            {{category.name}}
+           
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      
+      
+    <p class="text-danger" style="margin-top:-18px" *ngIf="service.formModel.get('Price').touched && service.formModel.get('Price').errors?.required">This field is required.</p>
+    <div style="display:flex;justify-content: center;">
+        <button type="submit" style="border-radius: 20px;" color="primary" [disabled]="!service.formModel.valid || !service.formModel.touched" class="mr-2"  mat-raised-button>Create
+
+        </button>
+        <button type="button" style="border-radius: 20px;" color="warn" (click)="onClear()" mat-raised-button>Clear
+    
+        </button>
+        
+    </div>
+    
+    
+</form> 
+

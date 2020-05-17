@@ -1,0 +1,19 @@
+<div class="card shadow-lg" style="background-color:lightslategray; padding:20px ;">
+<form #form="ngForm" class="example-form" (submit)="onSubmit(form)">
+    <mat-form-field class="example-width" >
+        <mat-label>Username</mat-label>
+        <input #UserName="ngModel" name="UserName" matInput [(ngModel)]="formModel.UserName" required >
+    </mat-form-field>
+    <mat-form-field class="example-width">
+        <mat-label>Password</mat-label>
+        <input #Password="ngModel" name="Password" [(ngModel)]="formModel.Password" required matInput type="password" >
+    </mat-form-field>
+    <div class="" style="display: flex;justify-content: center;">
+   
+        <img width="30px" class="mr-2" *ngIf="showSpinner"  src="../../../assets/5.gif">
+       <button type="submit"  mat-raised-button [disabled]="form.invalid">Login
+    
+       </button>
+    </div>
+</form>
+</div>

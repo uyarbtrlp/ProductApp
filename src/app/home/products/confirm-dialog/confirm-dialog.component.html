@@ -1,0 +1,13 @@
+<div class="dialog" >
+    <div style="display: flex; justify-content: center;">
+        <p class="">Are you sure to delete this product?</p>
+    <button style="top:-8px"  mat-icon-button (click)="onClose()"><i class="fa fa-times"></i></button>
+    </div>
+    
+    <div class="buttons example-full-width" style="display: flex;justify-content: center;">
+        <button  mat-flat-button class="mr-2" color="primary" [mat-dialog-close]="true">YES</button>
+    <button   mat-flat-button color="warn" [mat-dialog-close]="false">NO</button>
+
+    </div>
+    
+</div>
